@@ -11,7 +11,7 @@ import (
 
 func GetCityName(latitude, longitude float64) (string, error) {
 	// Replace with your preferred reverse geocoding API URL
-	url := fmt.Sprintf("https://maps.googleapis.com/maps/api/geocode/json?latlng=%f,%f&key=AIzaSyDIv5Watl4g5PeDrQymI6YkeHaml8uIoj0", latitude, longitude)
+	url := fmt.Sprintf("https://maps.googleapis.com/maps/api/geocode/json?latlng=%f,%f&", latitude, longitude)
 
 	response, err := http.Get(url)
 	if err != nil {
@@ -72,7 +72,7 @@ func GetCityName(latitude, longitude float64) (string, error) {
 func GetGeocodeLocation(s string) (float64, float64) {
 
 	locationString := strings.ReplaceAll(s, " ", "+")
-	url := ("https://maps.googleapis.com/maps/api/geocode/json?address=" + locationString + "&key=" + "AIzaSyDIv5Watl4g5PeDrQymI6YkeHaml8uIoj0")
+	url := ("https://maps.googleapis.com/maps/api/geocode/json?address=" + locationString + "&key=" + "")
 	response, err := http.Get(url)
 	if err != nil {
 		panic("Error retreiving response")
@@ -100,7 +100,7 @@ func GetGeocodeLocation(s string) (float64, float64) {
 	return latitude, longitude
 }
 
-const apiKey = "AIzaSyDIv5Watl4g5PeDrQymI6YkeHaml8uIoj0" // Replace with your actual API key
+const apiKey = ""
 
 func GetDistance(origin, destination string) int {
 	originString := strings.ReplaceAll(origin, " ", "+")
